@@ -1,0 +1,67 @@
+Monday
+
+CRON - Monday
+	SUBCRON - 12am-5pm
+	SUBCRON - 5pm-12am
+
+Tuesday
+
+CRON - Tuesday
+	SUBCRON - 12am-5pm
+	EVENTSUBCRON - 2pm - 3pm
+	SUBCRON - 5pm-12am
+
+Wednesday
+
+CRON - Wednesday
+	SUBCRON - 12am-5pm
+	SUBCRON - 5pm-12am
+
+Thursday
+
+CRON - Thursday
+	SUBCRON - 12am-5pm
+	EVENTSUBCRON - 2pm - 3pm
+	SUBCRON - 5pm-12am
+
+Friday
+
+CRON - Friday
+	SUBCRON - 12am-3pm
+	SUBCRON - 3pm-12am
+
+Saturday
+
+CRON - Saturday
+	SUBCRON - 12am-7pm
+	EVENTSUBCRON - 2pm - 3pm
+	SUBCRON - 7pm-12am
+
+Sunday
+
+CRON - Sunday
+	SUBCRON - 12am-7pm
+	SUBCRON - 7pm-12am
+
+
+Typical 12am to 5pm pattern X 4 -->  no bias
+Typical 5pm to 12am pattern X 4 --> bias 2
+
+Friday 12am to 3pm pattern (cut by 2 hours) X 1 --> 2, 4
+Friday 3pm to 12am pattern --> bias 4
+
+Saturday 12am - 7pm --> bias 3, 4
+Saturday 7pm - 12am --> no bias
+
+Sunday 12am - 7pm --> bias 2, 3
+Sunday 7pm - 12am --> no bias
+
+1 hour intense event X 3 --> bias 3
+
+
+volumes:
+            - ./config/nginx.conf:/etc/nginx/conf.d/default.conf
+
+
+
+

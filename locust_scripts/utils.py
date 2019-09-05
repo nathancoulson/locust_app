@@ -1,6 +1,7 @@
 import random
 import datetime
 import yaml
+import os
 
 
 
@@ -8,7 +9,7 @@ def url_generator(app_list):
 	base_string = "/"
 	url_list = []
 
-	for _ in range(10):
+	for _ in range(20):
 		instances = random.choice(range(1,6))
 		url = base_string + str(random.choice(app_list)) + '/'
 		for i in range(instances):
@@ -28,30 +29,19 @@ def bias_app_list(bias):
 
 	return app_list
 
-def save_url_to_file(bias, filename):
-	yml_list = filename + ": \n"
+def save_url_to_file(bias, lst_name, filename):
+	yml_list = lst_name + ": \n"
 
 	url_list = url_generator(bias_app_list(bias))
 
 	text = yml_list + yaml.dump(url_list, default_flow_style=False)
 
-	with open(filename + ".yml", "w") as text_file:
+	with open(filename + ".yml", "a+") as text_file:
 		text_file.write(text)
 
-save_url_to_file([2, 3], "test")
-
-
-'''
-print(bias_app_list([]))
-print(bias_app_list([2]))
-print(bias_app_list([2]))
-print(bias_app_list([2]))
-print(bias_app_list([2]))
-print(bias_app_list([4]))
-print(bias_app_list([2, 4]))
-print(bias_app_list([3, 4]))
-print(bias_app_list([2, 3]))
-
-print(url_generator(bias_app_list([2, 3])))
-print(url_generator(bias_app_list([4])))
-'''
+save_url_to_file([4], "bias_4", "daily_set")
+save_url_to_file([3], "bias_3", "daily_set")
+save_url_to_file([2], "bias_2", "daily_set")
+save_url_to_file([2,3], "bias_2_3", "daily_set")
+save_url_to_file([2,4], "bias_2_4", "daily_set")
+save_url_to_file([3,4], "bias_3_4", "daily_set")
