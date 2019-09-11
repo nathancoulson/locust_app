@@ -170,7 +170,7 @@ class UserBehavior(TaskSet):
             ]
         )
 
-    @task(4)
+    @task(1)
     def bias_3(self):
         self.client.get(
             url_sets["bias_3"][
@@ -210,7 +210,7 @@ class UserBehavior(TaskSet):
             ]
         )
 
-    @task(1)
+    @task(4)
     def bias_3_4(self):
         self.client.get(
             url_sets["bias_3_4"][
